@@ -22,7 +22,15 @@
         .heading{
           z-index: 10000;
           position: fixed;
-          margin-left: 30px;
+          margin-left: 30%;
+          /* width: 500px; */
+        }
+
+        #heading_explosions{
+          z-index: 10000;
+          position: fixed;
+          margin-left: 40%;
+          margin-top: 10%;
           /* width: 500px; */
         }
 
@@ -39,7 +47,7 @@
         /* width:100px;
         height:100px; */
         z-index: 10000;
-        bottom:20vh ;
+        top:30vh ;
         left: 50vh; 
 
         position: fixed;
@@ -282,6 +290,7 @@ height="318.2870370370371"
   id="US-WY" />
 </svg> -->
 <div class="heading"><h3 style="color: aliceblue;">Number of Nuclear explosions originating from countries by year</h3></div>
+<div id="heading_explosions"></div>
 <div class="form_div">
     <form>
         <select id="aioConceptName" class="form-select" style="background-color: rgb(211, 107, 128);">
@@ -1377,7 +1386,16 @@ height="318.2870370370371"
             var valueySelected = this.value;
             countt = strikes[selectedCountry][valueySelected]
 
-            emitParticles(countt)
+            
+
+            if(countt){
+              document.getElementById('heading_explosions').innerHTML = "<h3 style='color: aliceblue;''>" + countt +" explosions</h3>";
+
+              emitParticles(countt)
+
+            }else{
+              document.getElementById('heading_explosions').innerHTML = "<h3 style='color: aliceblue;''> no recorded explosions</h3>";
+            }
 
 
         });
